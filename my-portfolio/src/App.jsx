@@ -572,6 +572,19 @@ export default function Portfolio() {
         .btn-primary:hover  { transform:translateY(-4px) scale(1.03); box-shadow:0 10px 30px rgba(139,69,19,0.42); }
         .btn-primary:active { transform:scale(0.97); }
 
+        .skill-heading {
+  margin: 40px 0 15px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4A2800;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
         .btn-outline {
           background:transparent; color:#5D3A1A; border:2px solid #8B4513;
           padding:11px 30px; border-radius:30px;
@@ -652,7 +665,7 @@ export default function Portfolio() {
         display:"flex", alignItems:"center", justifyContent:"space-between",
       }}>
         <div style={{ fontFamily:"'Playfair Display', serif", fontSize:"19px", fontWeight:700, color:"#5D3A1A", display:"flex", alignItems:"center", gap:"8px" }}>
-          🌾 <span>MyPortfolio</span>
+          🌾 <span>Portfolio</span>
         </div>
 
         {/* Desktop nav */}
@@ -719,9 +732,9 @@ export default function Portfolio() {
             fontSize: isMobile ? "clamp(38px,10vw,56px)" : "clamp(44px,7vw,76px)",
             fontWeight:900, color:"#4A2800", lineHeight:1.0, marginBottom:"8px",
             textShadow:"0 2px 24px rgba(255,251,242,0.95)",
-          }}>Your Name</div>
+          }}>Naveen Banwala</div>
           <div className="hero-role" style={{ fontStyle:"italic", fontSize: isMobile ? "16px" : "clamp(16px,2.4vw,22px)", color:"#8B4513", marginBottom:"16px" }}>
-            Full-Stack Developer &amp; Engineer
+            Java Full-Stack Developer &amp; Engineer, DevOps/MLOps,DeepLearning(CNN)
           </div>
           <p className="hero-desc" style={{
             color:"#6A3E1A", fontSize: isMobile ? "14px" : "16px",
@@ -748,17 +761,18 @@ export default function Portfolio() {
         <div className="about-grid" style={{ display:"grid", gridTemplateColumns: isTablet ? "1fr" : "1fr 1fr", gap: isTablet ? "32px" : "56px", alignItems:"center", maxWidth:"1000px", margin:"0 auto" }}>
           <Reveal delay={0.1}>
             <p style={{ color:"#5D3A1A", fontSize: isMobile ? "15px" : "17px", lineHeight:1.95, marginBottom:"20px" }}>
-              Namaste! 🙏 I'm a developer with deep roots in the heartland of Haryana. Growing up surrounded by open fields, mud-walled houses, and the steady rhythms of village life gave me something that no CS curriculum could: <em>patience, groundedness, and the ability to solve real problems for real people.</em>
-            </p>
-            <p style={{ color:"#5D3A1A", fontSize: isMobile ? "15px" : "17px", lineHeight:1.95 }}>
-              Just as a farmer tends to every corner of their field, I tend to every corner of my codebase — with care, consistency, and pride in a job done well.
-            </p>
+  Namaste! 🙏 I'm Naveen, a B.Tech student from KIIT with a CGPA of 9.03, originally from Haryana. I’m passionate about solving real-world problems through technology and continuously work on turning ideas into practical, scalable solutions. My approach is hands-on — I learn by building, experimenting, and improving systems that can make a real impact.
+</p>
+
+<p style={{ color:"#5D3A1A", fontSize: isMobile ? "15px" : "17px", lineHeight:1.95 }}>
+  My core focus is Java full-stack development, complemented by experience in DevOps and MLOps with design their SDLC/Agile Models. I have built projects involving full-stack systems as well as CNN-based machine learning models, and I enjoy integrating ML solutions into real applications. I value discipline, clean architecture, and precision in my work. Instead of rushing for deadlines, I prefer understanding problems deeply and delivering fast, reliable, and well-structured solutions. I’m always eager to learn new technologies quickly and apply them effectively.
+</p>
           </Reveal>
           <Reveal delay={0.2}>
             <div style={{ background:"linear-gradient(135deg,#F5E4C4,#EDD09A)", borderRadius:"20px", padding: isMobile ? "24px" : "36px", border:"2px solid #D9B985", textAlign:"center" }}>
               <div style={{ fontSize: isMobile ? "44px" : "58px", marginBottom:"16px" }}>🏡</div>
               <div className="stats-grid" style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap: isMobile ? "14px" : "20px" }}>
-                {[["3+","Years Exp."],["15+","Projects"],["6+","Technologies"],["100%","Dedication"]].map(([n,l])=>(
+                {[["1.5+","Years Exp. in doing projects"],["8+","Quality Projects"],["15+","Technologies"],["100%","Dedication"]].map(([n,l])=>(
                   <div key={l} style={{ background:"rgba(255,255,255,0.55)", borderRadius:"12px", padding: isMobile ? "12px 6px" : "14px 8px" }}>
                     <div style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile ? "26px" : "34px", fontWeight:900, color:"#4A2800" }}>{n}</div>
                     <div style={{ color:"#8B4513", fontSize: isMobile ? "11px" : "13px", marginTop:"4px" }}>{l}</div>
@@ -770,29 +784,105 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ── SKILLS ── */}
-      <section id="skills" style={{ padding: isMobile ? "60px 5%" : "80px 8%", background:"#FDF3E0" }}>
-        <Reveal>
-          <div style={{ textAlign:"center" }}>
-            <div className="section-badge">⚡ What I Know</div>
-            <h2 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile ? "34px" : "44px", fontWeight:900, color:"#4A2800", margin:"0 0 8px" }}>Skills</h2>
-            <div className="divider" />
+   {/* ── SKILLS ── */}
+<section id="skills" style={{ padding: isMobile ? "60px 5%" : "80px 8%", background:"#FDF3E0" }}>
+  <Reveal>
+    <div style={{ textAlign:"center" }}>
+      <div className="section-badge">⚡ What I Know</div>
+      <h2 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile ? "34px" : "44px", fontWeight:900, color:"#4A2800", margin:"0 0 8px" }}>Skills</h2>
+      <div className="divider" />
+    </div>
+  </Reveal>
+
+  <div style={{ maxWidth:"1000px", margin:"0 auto" }}>
+
+    {/* Core & CS Fundamentals */}
+    <h3 className="skill-heading">📚 CS Fundamentals</h3>
+    <div className="skills-grid">
+      {skills.filter(s => ["Data Structures & Algorithms","System Design (Medium)","Computer Networks","DBMS"].includes(s.name))
+        .map(({ name, level, icon }, i)=>(
+        <Reveal key={name} delay={i * 0.05}>
+          <div className="skill-card">
+            <div style={{ display:"flex", justifyContent:"space-between" }}>
+              <span>{icon} {name}</span>
+              <span>{level}%</span>
+            </div>
+            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
           </div>
         </Reveal>
-        <div className="skills-grid" style={{ display:"grid", gridTemplateColumns: isMobile ? "1fr 1fr" : isTablet ? "1fr 1fr" : "repeat(3,1fr)", gap:"18px", maxWidth:"900px", margin:"0 auto" }}>
-          {skills.map(({ name, level, icon }, i)=>(
-            <Reveal key={name} delay={i * 0.08}>
-              <div className="skill-card">
-                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-                  <span style={{ fontWeight:600, color:"#4A2800", fontSize: isMobile ? "13px" : "15px" }}>{icon} {name}</span>
-                  <span style={{ color:"#8B4513", fontSize:"12px", fontWeight:600 }}>{level}%</span>
-                </div>
-                <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Backend & Databases */}
+    <h3 className="skill-heading">🗄️ Backend & Databases</h3>
+    <div className="skills-grid">
+      {skills.filter(s => ["Java","Spring Boot","SQL","PostgreSQL","Redis","Firebase"].includes(s.name))
+        .map(({ name, level, icon }, i)=>(
+        <Reveal key={name} delay={i * 0.05}>
+          <div className="skill-card">
+            <div style={{ display:"flex", justifyContent:"space-between" }}>
+              <span>{icon} {name}</span>
+              <span>{level}%</span>
+            </div>
+            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+
+    {/* Frontend */}
+    <h3 className="skill-heading">🎨 Frontend</h3>
+    <div className="skills-grid">
+      {skills.filter(s => ["React","Tailwind CSS","Web Design"].includes(s.name))
+        .map(({ name, level, icon }, i)=>(
+        <Reveal key={name} delay={i * 0.05}>
+          <div className="skill-card">
+            <div style={{ display:"flex", justifyContent:"space-between" }}>
+              <span>{icon} {name}</span>
+              <span>{level}%</span>
+            </div>
+            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+
+    {/* DevOps & Cloud */}
+    <h3 className="skill-heading">⚙️ DevOps & Cloud</h3>
+    <div className="skills-grid">
+      {skills.filter(s => ["Docker","Kubernetes","AWS","EKS","Jenkins","CI/CD","Terraform","DevOps","Git","GitHub"].includes(s.name))
+        .map(({ name, level, icon }, i)=>(
+        <Reveal key={name} delay={i * 0.05}>
+          <div className="skill-card">
+            <div style={{ display:"flex", justifyContent:"space-between" }}>
+              <span>{icon} {name}</span>
+              <span>{level}%</span>
+            </div>
+            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+
+    {/* Machine Learning */}
+    <h3 className="skill-heading">🤖 Machine Learning</h3>
+    <div className="skills-grid">
+      {skills.filter(s => ["Machine Learning","TensorFlow","Scikit-learn","CNN","Python"].includes(s.name))
+        .map(({ name, level, icon }, i)=>(
+        <Reveal key={name} delay={i * 0.05}>
+          <div className="skill-card">
+            <div style={{ display:"flex", justifyContent:"space-between" }}>
+              <span>{icon} {name}</span>
+              <span>{level}%</span>
+            </div>
+            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       {/* ── PROJECTS ── */}
       <section id="projects" style={{ padding: isMobile ? "60px 4%" : "80px 8%", background:"#FFFBF2" }}>
