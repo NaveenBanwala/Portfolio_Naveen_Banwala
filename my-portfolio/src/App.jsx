@@ -473,12 +473,54 @@ const Reveal = ({ children, delay = 0, style = {} }) => {
    DATA
 ───────────────────────────────────────────── */
 const skills = [
+  // Core Languages
+  { name:"Java", level:90, icon:"☕" },
   { name:"JavaScript", level:90, icon:"⚡" },
-  { name:"React",      level:85, icon:"⚛️" },
-  { name:"Node.js",    level:80, icon:"🌿" },
-  { name:"Python",     level:75, icon:"🐍" },
-  { name:"SQL",        level:70, icon:"🗄️" },
-  { name:"Git",        level:85, icon:"🌾" },
+  { name:"Python", level:85, icon:"🐍" },
+  { name:"C", level:75, icon:"💻" },
+
+  // Frontend
+  { name:"React", level:90, icon:"⚛️" },
+  { name:"Tailwind CSS", level:85, icon:"🎨" },
+  { name:"Web Design", level:80, icon:"🖌️" },
+
+  // Backend & Full Stack
+  { name:"Spring Boot", level:88, icon:"🌱" },
+  { name:"Node.js", level:80, icon:"🌿" },
+  { name:"Firebase", level:75, icon:"🔥" },
+
+  // Databases & Cache
+  { name:"SQL", level:85, icon:"🗄️" },
+  { name:"PostgreSQL", level:85, icon:"🐘" },
+  { name:"Redis", level:75, icon:"📦" },
+  { name:"DBMS", level:80, icon:"🧩" },
+
+  // DevOps & Cloud (adjusted to realistic ~70 where needed)
+  { name:"Docker", level:80, icon:"🐳" },
+  { name:"Kubernetes", level:70, icon:"☸️" },
+  { name:"AWS", level:75, icon:"☁️" },
+  { name:"EKS", level:70, icon:"🧩" },
+  { name:"Jenkins", level:75, icon:"🔧" },
+  { name:"CI/CD", level:80, icon:"🔄" },
+  { name:"Terraform", level:70, icon:"🏗️" },
+
+  // Machine Learning & MLOps
+  { name:"Machine Learning", level:80, icon:"🤖" },
+  { name:"TensorFlow", level:75, icon:"🧠" },
+  { name:"Scikit-learn", level:75, icon:"📊" },
+  { name:"CNN", level:70, icon:"🧬" },
+
+  // CS Fundamentals
+  { name:"Data Structures & Algorithms", level:85, icon:"📚" },
+  { name:"System Design (Medium)", level:70, icon:"🏛️" },
+  { name:"Computer Networks", level:75, icon:"🌐" },
+  { name:"SDLC / Agile", level:80, icon:"📈" },
+
+  // Tools & Practices
+  { name:"Git", level:90, icon:"🌿" },
+  { name:"GitHub", level:90, icon:"🐙" },
+  { name:"Debugging", level:85, icon:"🐞" },
+  { name:"DevOps", level:80, icon:"⚙️" },
 ];
 
 const projects = [
