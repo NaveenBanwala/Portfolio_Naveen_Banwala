@@ -514,7 +514,7 @@ const skills = [
   { name:"Data Structures & Algorithms", level:85, icon:"📚" },
   { name:"System Design (Medium)", level:70, icon:"🏛️" },
   { name:"Computer Networks", level:75, icon:"🌐" },
-  { name:"SDLC / Agile", level:80, icon:"📈" },
+  { name:"Software Development(SDLC/gile)", level:80, icon:"📈" },
 
   // Tools & Practices
   { name:"Git", level:90, icon:"🌿" },
@@ -863,46 +863,77 @@ export default function Portfolio() {
 
 <section id="skills" style={{ padding: isMobile ? "60px 5%" : "80px 8%", background:"#FDF3E0" }}>
   <Reveal>
-    <div style={{ textAlign:"center" }}>
+    <div style={{ textAlign:"center", marginBottom: "40px" }}>
       <div className="section-badge">⚡ What I Know</div>
       <h2 style={{ fontFamily:"'Playfair Display', serif", fontSize: isMobile ? "34px" : "44px", fontWeight:900, color:"#4A2800", margin:"0 0 8px" }}>Skills</h2>
       <div className="divider" />
     </div>
   </Reveal>
 
-  {/* maxWidth set to 800px looks better for single-column layouts so it doesn't get TOO wide on desktop */}
   <div style={{ maxWidth:"800px", margin:"0 auto" }}>
-
     {[
-      { title: "📚 CS Fundamentals", keys: ["Data Structures & Algorithms","System Design (Medium)","Computer Networks","DBMS"] },
-      { title: "🗄️ Backend & Databases", keys: ["Java","Spring Boot","SQL","PostgreSQL","Redis","Firebase"] },
-      { title: "🎨 Frontend", keys: ["React","Tailwind CSS","Web Design"] },
-      { title: "⚙️ DevOps & Cloud", keys: ["Docker","Kubernetes","AWS","EKS","Jenkins","CI/CD","Terraform","DevOps","Git","GitHub"] },
-      { title: "🤖 Machine Learning", keys: ["Machine Learning","TensorFlow","Scikit-learn","CNN","Python"] }
+      { 
+        title: "📚 CS Fundamentals", 
+        // FIX: Split these into individual strings that match your 'skills' array names exactly
+        keys: ["Data Structures & Algorithms", "System Design (Medium)", "Computer Networks", "DBMS", "Software Development(SDLC/gile)"] 
+      },
+      { 
+        title: "🗄️ Backend & Databases", 
+        keys: ["Java", "Spring Boot", "SQL", "PostgreSQL", "Redis", "Firebase"] 
+      },
+      { 
+        title: "🎨 Frontend", 
+        keys: ["React", "Tailwind CSS", "Web Design"] 
+      },
+      { 
+        title: "⚙️ DevOps & Cloud", 
+        keys: ["Docker", "Kubernetes", "AWS", "EKS", "Jenkins", "CI/CD", "Terraform", "DevOps", "Git", "GitHub"] 
+      },
+      { 
+        title: "🤖 Machine Learning", 
+        keys: ["Machine Learning", "TensorFlow", "Scikit-learn", "CNN", "Python"] 
+      }
     ].map((category) => (
-      <div key={category.title} style={{ marginBottom: "40px" }}>
-        <h3 className="skill-heading">{category.title}</h3>
-        <div className="skills-grid-single"> {/* Use a new class or update existing one */}
-          {skills.filter(s => category.keys.includes(s.name))
-            .map(({ name, level, icon }, i)=>(
-            <Reveal key={name} delay={i * 0.05}>
-              <div className="skill-card-full">
-                <div style={{ display:"flex", justifyContent:"space-between", marginBottom: "8px" }}>
-                  <span style={{ fontWeight: 600 }}>{icon} {name}</span>
-                  <span style={{ fontWeight: 600 }}>{level}%</span>
+      <div key={category.title} style={{ marginBottom: "50px" }}>
+        <h3 className="skill-heading" style={{ fontSize: "22px", color: "#4A2800", marginBottom: "20px" }}>
+          {category.title}
+        </h3>
+        <div className="skills-grid-single" style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          {skills
+            .filter(s => category.keys.includes(s.name))
+            .map(({ name, level, icon }, i) => (
+              <Reveal key={name} delay={i * 0.05}>
+                <div className="skill-card-full" style={{ 
+                  background: "#fff", 
+                  padding: "20px", 
+                  borderRadius: "12px", 
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.03)",
+                  width: "100%" 
+                }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "10px" }}>
+                    <span style={{ fontWeight: 700 }}>{icon} {name}</span>
+                    <span style={{ fontWeight: 700 }}>{level}%</span>
+                  </div>
+                  <div className="skill-track" style={{ height: "10px", background: "#eee", borderRadius: "10px", overflow: "hidden" }}>
+                    <div 
+                      className="skill-fill" 
+                      style={{ 
+                        width: `${level}%`, 
+                        height: "100%", 
+                        background: "#4A2800", 
+                        borderRadius: "10px",
+                        transition: "width 1s ease-in-out" 
+                      }} 
+                    />
+                  </div>
                 </div>
-                <div className="skill-track">
-                  <div className="skill-fill" style={{ width:`${level}%` }} />
-                </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
         </div>
       </div>
     ))}
   </div>
 </section>
-
       {/* ── PROJECTS ── */}
       <section id="projects" style={{ padding: isMobile ? "60px 4%" : "80px 8%", background:"#FFFBF2" }}>
         <Reveal>
@@ -958,10 +989,12 @@ export default function Portfolio() {
         </Reveal>
         <Reveal delay={0.15}>
           <div style={{ display:"flex", gap:"12px", justifyContent:"center", flexWrap:"wrap" }}>
-            <button className="contact-icon-btn" onClick={()=>window.open("mailto:your@email.com")}>✉️ Email Me</button>
-            <button className="contact-icon-btn" onClick={()=>window.open("https://github.com")}>🐙 GitHub</button>
-            <button className="contact-icon-btn" onClick={()=>window.open("https://linkedin.com")}>💼 LinkedIn</button>
-            <button className="contact-icon-btn" onClick={()=>window.open("https://twitter.com")}>🐦 Twitter</button>
+            <button className="contact-icon-btn" onClick={()=>window.open("mailto:nbanwala7@email.com")}>✉️ Email Me</button>
+            <button className="contact-icon-btn" onClick={()=>window.open("https://github.com/NaveenBanwala")}>🐙 GitHub</button>
+            <button className="contact-icon-btn" onClick={()=>window.open("https://www.linkedin.com/in/naveen-banwala-463831298/")}>💼 LinkedIn</button>
+            <button className="contact-icon-btn" onClick={()=>window.open("https://careereye.44.192.45.193.nip.io/")}>💼 Website</button>
+             <button className="contact-icon-btn" onClick={()=>window.open("https://drive.google.com/file/d/18kKRHfxSbNUQKEp_qHLM9ZnQ-rQMnhAV/view?usp=sharing")}>💼 Resume</button>
+            
           </div>
         </Reveal>
         <div style={{ marginTop:"64px", paddingTop:"24px", borderTop:"2px solid #E8C99A", color:"#8B6040", fontSize:"13px", fontStyle:"italic" }}>
