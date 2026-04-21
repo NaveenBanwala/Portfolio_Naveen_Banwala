@@ -572,17 +572,52 @@ export default function Portfolio() {
         .btn-primary:hover  { transform:translateY(-4px) scale(1.03); box-shadow:0 10px 30px rgba(139,69,19,0.42); }
         .btn-primary:active { transform:scale(0.97); }
 
-        .skill-heading {
-  margin: 40px 0 15px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #4A2800;
+//         .skill-heading {
+//   margin: 40px 0 15px;
+//   font-size: 20px;
+//   font-weight: 700;
+//   color: #4A2800;
+// }
+
+// .skills-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+//   gap: 16px;
+// }
+  /* Forces one card per row */
+.skills-grid-single {
+  display: grid;
+  grid-template-columns: 1fr; /* This ensures only 1 column */
+  gap: 16px;
+  width: 100%;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+/* Ensures the card takes full width and looks clean */
+.skill-card-full {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  width: 100%; /* Full screen width of the container */
+  transition: transform 0.3s ease;
+}
+
+.skill-card-full:hover {
+  transform: translateY(-2px);
+}
+
+.skill-track {
+  height: 8px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: #4A2800; /* Matching your theme color */
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
 }
 
         .btn-outline {
@@ -784,7 +819,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-   {/* ── SKILLS ── */}
 <section id="skills" style={{ padding: isMobile ? "60px 5%" : "80px 8%", background:"#FDF3E0" }}>
   <Reveal>
     <div style={{ textAlign:"center" }}>
@@ -794,93 +828,36 @@ export default function Portfolio() {
     </div>
   </Reveal>
 
-  <div style={{ maxWidth:"1000px", margin:"0 auto" }}>
+  {/* maxWidth set to 800px looks better for single-column layouts so it doesn't get TOO wide on desktop */}
+  <div style={{ maxWidth:"800px", margin:"0 auto" }}>
 
-    {/* Core & CS Fundamentals */}
-    <h3 className="skill-heading">📚 CS Fundamentals</h3>
-    <div className="skills-grid">
-      {skills.filter(s => ["Data Structures & Algorithms","System Design (Medium)","Computer Networks","DBMS"].includes(s.name))
-        .map(({ name, level, icon }, i)=>(
-        <Reveal key={name} delay={i * 0.05}>
-          <div className="skill-card">
-            <div style={{ display:"flex", justifyContent:"space-between" }}>
-              <span>{icon} {name}</span>
-              <span>{level}%</span>
-            </div>
-            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-
-    {/* Backend & Databases */}
-    <h3 className="skill-heading">🗄️ Backend & Databases</h3>
-    <div className="skills-grid">
-      {skills.filter(s => ["Java","Spring Boot","SQL","PostgreSQL","Redis","Firebase"].includes(s.name))
-        .map(({ name, level, icon }, i)=>(
-        <Reveal key={name} delay={i * 0.05}>
-          <div className="skill-card">
-            <div style={{ display:"flex", justifyContent:"space-between" }}>
-              <span>{icon} {name}</span>
-              <span>{level}%</span>
-            </div>
-            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-
-    {/* Frontend */}
-    <h3 className="skill-heading">🎨 Frontend</h3>
-    <div className="skills-grid">
-      {skills.filter(s => ["React","Tailwind CSS","Web Design"].includes(s.name))
-        .map(({ name, level, icon }, i)=>(
-        <Reveal key={name} delay={i * 0.05}>
-          <div className="skill-card">
-            <div style={{ display:"flex", justifyContent:"space-between" }}>
-              <span>{icon} {name}</span>
-              <span>{level}%</span>
-            </div>
-            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-
-    {/* DevOps & Cloud */}
-    <h3 className="skill-heading">⚙️ DevOps & Cloud</h3>
-    <div className="skills-grid">
-      {skills.filter(s => ["Docker","Kubernetes","AWS","EKS","Jenkins","CI/CD","Terraform","DevOps","Git","GitHub"].includes(s.name))
-        .map(({ name, level, icon }, i)=>(
-        <Reveal key={name} delay={i * 0.05}>
-          <div className="skill-card">
-            <div style={{ display:"flex", justifyContent:"space-between" }}>
-              <span>{icon} {name}</span>
-              <span>{level}%</span>
-            </div>
-            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-
-    {/* Machine Learning */}
-    <h3 className="skill-heading">🤖 Machine Learning</h3>
-    <div className="skills-grid">
-      {skills.filter(s => ["Machine Learning","TensorFlow","Scikit-learn","CNN","Python"].includes(s.name))
-        .map(({ name, level, icon }, i)=>(
-        <Reveal key={name} delay={i * 0.05}>
-          <div className="skill-card">
-            <div style={{ display:"flex", justifyContent:"space-between" }}>
-              <span>{icon} {name}</span>
-              <span>{level}%</span>
-            </div>
-            <div className="skill-track"><div className="skill-fill" style={{ width:`${level}%` }} /></div>
-          </div>
-        </Reveal>
-      ))}
-    </div>
-
+    {[
+      { title: "📚 CS Fundamentals", keys: ["Data Structures & Algorithms","System Design (Medium)","Computer Networks","DBMS"] },
+      { title: "🗄️ Backend & Databases", keys: ["Java","Spring Boot","SQL","PostgreSQL","Redis","Firebase"] },
+      { title: "🎨 Frontend", keys: ["React","Tailwind CSS","Web Design"] },
+      { title: "⚙️ DevOps & Cloud", keys: ["Docker","Kubernetes","AWS","EKS","Jenkins","CI/CD","Terraform","DevOps","Git","GitHub"] },
+      { title: "🤖 Machine Learning", keys: ["Machine Learning","TensorFlow","Scikit-learn","CNN","Python"] }
+    ].map((category) => (
+      <div key={category.title} style={{ marginBottom: "40px" }}>
+        <h3 className="skill-heading">{category.title}</h3>
+        <div className="skills-grid-single"> {/* Use a new class or update existing one */}
+          {skills.filter(s => category.keys.includes(s.name))
+            .map(({ name, level, icon }, i)=>(
+            <Reveal key={name} delay={i * 0.05}>
+              <div className="skill-card-full">
+                <div style={{ display:"flex", justifyContent:"space-between", marginBottom: "8px" }}>
+                  <span style={{ fontWeight: 600 }}>{icon} {name}</span>
+                  <span style={{ fontWeight: 600 }}>{level}%</span>
+                </div>
+                <div className="skill-track">
+                  <div className="skill-fill" style={{ width:`${level}%` }} />
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 
